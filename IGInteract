@@ -1,0 +1,48 @@
+# 1- abrir o site (instagram)
+import webbrowser
+import pyautogui
+from time import sleep
+
+webbrowser.open('https://www.instagram.com/')
+# 2- colocar usuario
+pyautogui.click(1014,285, duration=8)
+pyautogui.typewrite('@username')
+# 3-colocar senha
+pyautogui.click(996,331, duration=8)
+pyautogui.typewrite('password')
+# 4-clicar em entrar
+pyautogui.click(1007,372, duration=2)
+# 5-aperta botão agora não
+pyautogui.click(1018,511, duration=5)
+# 6-pesquisar
+pyautogui.click(1150,109, duration=8)
+pyautogui.click(1150,109, duration=8)
+pyautogui.typewrite('txt')
+sleep(5)
+pyautogui.press('enter')
+pyautogui.press('enter')
+# 7-clicar na ultima postagem
+pyautogui.click(772,501, duration=5)
+sleep(8)
+# 8-indentificar se ja foi curtida a publicação
+caminho_do_arquivo =  '/caminho/para/o/seu/arquivo/curtir.png'
+
+curtir = pyautogui.locateCenterOnScreen(caminho_do_arquivo) 
+sleep(1)
+# 9-se ja tiver pausa de 24 horas
+if curtir is not None:
+    sleep(86400)
+    
+# 10-se nao curtiu
+elif curtir == None:
+    pyautogui.click(908,582, duration=5)
+# 11- se nao curtiu comentar
+    pyautogui.click(949,596, duration=5)
+    sleep(2)
+    pyautogui.click(987,670, duration=5)
+    sleep(2)
+    pyautogui.typewrite(':)')
+    sleep(2)
+    pyautogui.click(1166,669, duration=3)
+# 12-pausa 24horas
+    sleep(86400)
